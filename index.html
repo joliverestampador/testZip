@@ -1,3 +1,24 @@
 <html>
-test
+<head>
+    <script src="https://static.zipmoney.com.au/checkout/checkout-v1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+      <button id="zip-checkout">Pay with zip</button>
+      <script>
+          $(document).ready(function() {
+            $("#zip-checkout").click(function(){
+                Zip.Checkout.attachButton('#zip-checkout', { 
+                        checkoutUri: 'payment-summary',
+                        onComplete: function (args) {
+                            
+                            // state can be cancelled|approved|declined|referred
+                            console.log(args.state, args.checkoutId);
+                        }
+                    });
+            })
+          })
+       } 
+      </script>
+  </body>
 </html>

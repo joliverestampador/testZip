@@ -11,7 +11,7 @@
                 Zip.Checkout.attachButton('#zip-checkout', { 
                         checkoutUri: 'payment-summary',
                         onComplete: function (args) {
-                            
+                            console.log('test');
                             // state can be cancelled|approved|declined|referred
                             console.log(args.state, args.checkoutId);
                         }

@@ -9,7 +9,7 @@
           $(document).ready(function() {
             $("#zip-checkout").click(function(){
                 Zip.Checkout.attachButton('#zip-checkout', { 
-                        checkoutUri: 'payment-summary',
+                        checkoutUri: 'payment-summary.html',
                         onComplete: function (args) {
                             console.log('test');
                             // state can be cancelled|approved|declined|referred

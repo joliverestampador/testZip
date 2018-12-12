@@ -9,25 +9,8 @@
           $(document).ready(function() {
             $("#zip-checkout").click(function(){
                 Zip.Checkout.attachButton('#zip-checkout', { 
-                        checkoutUri: '/zip/checkout',
+                        checkoutUri: '/payment-summary.html',
                         onComplete: function (args) {
-                            var settings = {
-                                  "async": true,
-                                  "crossDomain": true,
-                                  "url": "https://api.sandbox.zipmoney.com.au/merchant/v1/checkouts",
-                                  "method": "POST",
-                                  "headers": {
-                                    "authorization": "Bearer test",
-                                    "zip-version": "2017-03-01",
-                                    "content-type": "application/json"
-                                  },
-                                  "processData": false,
-                                  "data": "{\"shopper\":{\"title\":\"Mr\",\"first_name\":\"John\",\"last_name\":\"Smith\",\"middle_name\":\"Joe\",\"phone\":\"0400000000\",\"email\":\"test@emailaddress.com\",\"birth_date\":\"2017-10-10\",\"gender\":\"Male\",\"statistics\":{\"account_created\":\"2015-09-09T19:58:47.697Z\",\"sales_total_number\":2,\"sales_total_amount\":450,\"sales_avg_value\":250,\"sales_max_value\":350,\"refunds_total_amount\":0,\"previous_chargeback\":false,\"currency\":\"AUD\"},\"billing_address\":{\"line1\":\"10 Test st\",\"city\":\"Sydney\",\"state\":\"NSW\",\"postal_code\":\"2000\",\"country\":\"AU\"}},\"order\":{\"reference\":\"testcheckout1\",\"amount\":200,\"currency\":\"AUD\",\"shipping\":{\"pickup\":false,\"tracking\":{\"uri\":\"http://tracking.com?code=CBX-343\",\"number\":\"CBX-343\",\"carrier\":\"tracking.com\"},\"address\":{\"line1\":\"10 Test st\",\"city\":\"Sydney\",\"state\":\"NSW\",\"postal_code\":\"2000\",\"country\":\"AU\"}},\"items\":[{\"name\":\"Awesome shoes\",\"amount\":200,\"quantity\":1,\"type\":\"sku\",\"reference\":\"1\"}]},\"config\":{\"redirect_uri\":\"http://www.redirectsuccess.com/zipmoney/approved\"},\"metadata\":{\"name1\":\"value1\"}}"
-                                }
-
-                                $.ajax(settings).done(function (response) {
-                                  console.log(response);
-                                });
                             console.log(args.state, args.checkoutId);
                         }
                     });
